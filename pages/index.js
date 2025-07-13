@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex-1 relative hidden md:block">
           <input
             type="text"
-            placeholder="Discover more than 10,000 fantastic recipes on BBC Food"
+            placeholder="Discover more than 10,000 fantastic recipes on SAMRIT Food"
             aria-label="Search recipes"
             className="w-full py-2 pl-5 pr-10 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-400 bg-white"
           />
@@ -479,7 +479,7 @@ export default function Home() {
 <section className="bg-gray-100 text-black flex flex-col md:flex-row items-center py-[20px] px-[20px] text-[14px] mb-24">
   <div className="flex flex-wrap items-center gap-[12px] mb-4 md:mb-0">
     <a href="#" className="font-bold">FAQs</a>
-    <span className="text-gray-500">about BBC Food</span>
+    <span className="text-gray-500">about SAMRIT Food</span>
     <span className="text-gray-500">|</span>
     <span className="text-gray-500">Find us here</span>
   </div>
