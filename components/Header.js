@@ -80,7 +80,7 @@ export default function Header() {
         </div>
 
         {/* 📺 Desktop: Center Nav */}
-        <nav className="hidden lg:flex gap-10 w-[55%] items-center justify-center">
+        <nav className="hidden lg:flex gap-8 w-[55%] items-center justify-center">
           {navLinks.map((link, idx) => (
             <Link key={idx} href={link.href} className="text-sm font-medium hover:underline">{link.label}</Link>
           ))}
