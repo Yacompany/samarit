@@ -9,34 +9,34 @@ export default function Footer() {
 
       {/* Nav Links */}
       <ul className="flex flex-wrap ml-[-19px] mt-8">
-          <li className="w-1/2 sm:w-1/3 md:w-1/6  border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4  border-r border-[#949494]">
             <a href="" className="hover:underline ml-4">Home</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">News</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Sport</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Business</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Innovation</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Culture</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Culture</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Earth</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Video</a>
           </li>
-          <li className="w-1/2 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+          <li className="w-1/2 sm:w-1/3 md:w-1/4 border-r border-[#949494]">
             <a href="news" className="hover:underline ml-4">Live</a>
           </li>
           
