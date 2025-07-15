@@ -16,6 +16,7 @@ export default function Header() {
     { label: "Business", href: "/business" },
     { label: "Innovation", href: "/innovation" },
     { label: "Culture", href: "/culture" },
+     { label: "Travel", href: "/travel" },
   ]; */
 
     const navLinks = [
@@ -25,7 +26,6 @@ export default function Header() {
     { label: "Contact us", href: "/business" },
     { label: "Services", href: "/innovation" },
     { label: "Home", href: "/" },
-    { label: "Travel", href: "/travel" },
   ];
   
   const moreLinks = [
