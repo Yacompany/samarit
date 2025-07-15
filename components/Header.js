@@ -9,7 +9,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
 
-  const navLinks = [
+/*  const navLinks = [
     { label: "Home", href: "/" },
     { label: "News", href: "/news" },
     { label: "Sport", href: "/sport" },
@@ -17,7 +17,18 @@ export default function Header() {
     { label: "Innovation", href: "/innovation" },
     { label: "Culture", href: "/culture" },
     { label: "Travel", href: "/travel" },
+  ]; */
+
+    const navLinks = [
+    { label: "Indian Regional Cuisine", href: "/culture" },
+    { label: "Consultency", href: "/news" },
+    { label: "Product List", href: "/sport" },
+    { label: "Contact us", href: "/business" },
+    { label: "Services", href: "/innovation" },
+    { label: "Home", href: "/" },
+    { label: "Travel", href: "/travel" },
   ];
+  
   const moreLinks = [
     { label: "Earth", href: "/earth" },
     { label: "Video", href: "/video" },
