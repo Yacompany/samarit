@@ -8,15 +8,17 @@ import Image from 'next/image';
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showMobileRecipes, setShowMobileRecipes] = useState(false);
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "News", href: "/news" },
-    { label: "Sport", href: "/sport" },
-    { label: "Business", href: "/business" },
-    { label: "Innovation", href: "/innovation" },
-    { label: "Culture", href: "/culture" },
-    { label: "Travel", href: "/travel" },
+    { label: "Indian Regional Cuisine", href: "/state" },
+    { label: "Consultency", href: "/" },
+    { label: "Product List", href: "/" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Services", href: "/" },
   ];
   const moreLinks = [
     { label: "Earth", href: "/earth" },
@@ -70,7 +72,7 @@ export default function Header() {
         </div>
 
         {/* 📺 Desktop: Center Nav */}
-        <nav className="hidden lg:flex gap-10 w-[55%] items-center justify-center">
+        <nav className="hidden lg:flex gap-5 w-[55%] items-center justify-center">
           {navLinks.map((link, idx) => (
             <Link key={idx} href={link.href} className="text-sm font-medium hover:underline">{link.label}</Link>
           ))}
@@ -111,7 +113,7 @@ export default function Header() {
         <button onClick={() => setShowMoreMenu(false)}>
           <X className="w-5 h-5 text-gray-700 cursor-pointer" />
         </button>
-      </div>
+      </div> 
 
       {/* 📱 Mobile: Dropdown menu */}
       {mobileMenuOpen && (
@@ -130,6 +132,225 @@ export default function Header() {
           </div>
         </div>
       )}
+            {/* Top Header */}
+      <div className="flex items-center justify-between px-4 pt-2 md:p-4">
+        {/* Title */}
+        <h1 className="text-4xl font-bold text-gray-800 mr-4">FOOD</h1>
+
+        {/* Search Bar - Desktop Only */}
+        <div className="flex-1 relative hidden md:block">
+          <input
+            type="text"
+            placeholder="Discover more than 10,000 fantastic recipes on SAMRIT Food"
+            aria-label="Search recipes"
+            className="w-full py-2 pl-5 pr-10 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-400 bg-white"
+          />
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35M17 10.5A6.5 6.5 0 104 10.5a6.5 6.5 0 0013 0z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Hamburger + All Food - Mobile */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex items-center text-green-600 border border-green-600 px-3 py-1 rounded hover:bg-green-50 md:hidden"
+        >
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          All Food
+        </button>
+      </div>
+
+
+      {/* Navigation - Desktop */}
+      <div className="hidden md:flex items-center bg-black text-white text-sm font-medium">
+        <nav className="flex-1">
+          <ul className="flex">
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">Home</a>
+            </li>
+
+            {/* Recipes with Dropdown */}
+            <li
+              onMouseEnter={() => setShowDropdown(true)}
+              onMouseLeave={() => setShowDropdown(false)}
+              className="relative"
+            >
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">
+                Recipes <span className="ml-1">▼</span>
+              </a>
+              {showDropdown && (
+                <div className="absolute left-[-5rem] top-full bg-black/80 text-white w-screen shadow-lg z-100">
+                  <div className="flex gap-4 px-8 py-4 text-[14px]">
+                    {[
+                      "In Season",
+                      "Occasions",
+                      "Cuisines",
+                      "Ingredients",
+                      "Dishes",
+                      "Collections",
+                    ].map((item, idx) => (
+                      <a
+                        key={idx}
+                        href="#"
+                        className="hover:underline whitespace-nowrap border-r last:border-none pr-4 mr-4 border-black"
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </li>
+
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">Budget Recipes</a>
+            </li>
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">Chefs</a>
+            </li>
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">Stories</a>
+            </li>
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">Diets</a>
+            </li>
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue border-r border-gray-400 block">Programmes</a>
+            </li>
+            <li>
+              <a href="#" className="px-4 py-3 hover:bg-blue block">Techniques</a>
+            </li>
+          </ul>
+
+        </nav>
+
+        {/* Favourites */}
+        <div>
+          <a
+            href="#"
+            className="px-4 py-3 text-green-300 hover:bg-blue block"
+          >
+            Your Favourites
+          </a>
+        </div>
+      </div>
+
+      {/* Navigation Dropdown - Mobile */}
+      {menuOpen && (
+        <div className="md:hidden bg-[#017d18] text-white text-sm font-medium">
+          <ul>
+            {/* Home */}
+            <li className="border-b border-white-300 text-[15px]">
+              <a href="#" className="block px-4 py-2 hover:bg-blue">Home</a>
+            </li>
+
+            {/* Recipes with Submenu */}
+            <li className="border-b border-white-300 text-[15px]">
+              <button
+                onClick={() => setShowMobileRecipes(!showMobileRecipes)}
+                className="w-full text-left px-4 py-2 hover:bg-blue flex justify-between items-center"
+              >
+                Recipes
+                <span>{showMobileRecipes ? "▲" : "▼"}</span>
+              </button>
+
+              {showMobileRecipes && (
+                <ul className="bg-[#339646] text-white border-t">
+                  {[
+                    "In Season",
+                    "Occasions",
+                    "Cuisines",
+                    "Ingredients",
+                    "Dishes",
+                    "Collections",
+                  ].map((subItem, idx) => (
+                    <li key={idx}>
+                      <a
+                        href="#"
+                        className="block px-6 py-2 text-sm border-b hover:bg-blue"
+                      >
+                        {subItem}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            {/* Other Items */}
+            {[
+              "Budget Recipes",
+              "Chefs",
+              "Stories",
+              "Diets",
+              "Programmes",
+              "Techniques",
+            ].map((item, index) => (
+              <li key={index} className="border-b border-white-300 text-[15px]">
+                <a href="#" className="block px-4 py-2 hover:bg-blue">{item}</a>
+              </li>
+            ))}
+
+            {/* Your Favourites */}
+            <li className="text-[15px]">
+              <a
+                href="#"
+                className="block px-4 py-3 text-green-300 hover:bg-blue"
+              >
+                Your Favourites
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      )}
+
+      {/* Search Bar - Mobile Only */}
+      <div className="pt-2 px-4 md:hidden">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Discover recipes"
+            aria-label="Search recipes"
+            className="w-full py-2 pl-4 pr-10 text-gray-700 bg-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+          />
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35M17 10.5A6.5 6.5 0 104 10.5a6.5 6.5 0 0013 0z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
