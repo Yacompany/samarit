@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function StateIndex() {
   return (
     <section className="md:p-4 p-2">
-      <h1 className="text-3xl font-bold mb-4">Food around the world</h1>
+      <h1 className="text-3xl font-bold mb-4">Food around the Uttar Pradesh</h1>
 
       <motion.div
         className="md:flex md:gap-2 bg-white shadow-md overflow-hidden"
@@ -72,19 +72,19 @@ export default function StateIndex() {
         {[
           {
             img: "https://ichef.bbci.co.uk/food/ic/food_16x9_320/cuisines/african_16x9.jpg",
-            title: "African",
+            title: "Lucknow",
           },
           {
             img: "https://ichef.bbci.co.uk/food/ic/food_16x9_320/cuisines/american_16x9.jpg",
-            title: "American",
+            title: "Kanpur",
           },
           {
             img: "https://ichef.bbci.co.uk/food/ic/food_16x9_320/cuisines/british_16x9.jpg",
-            title: "British",
+            title: "varansi",
           },
           {
             img: "https://ichef.bbci.co.uk/food/ic/food_16x9_320/cuisines/caribbean_16x9.jpg",
-            title: "Caribbean",
+            title: "Mirzapur",
           },
         ].map((story, index) => (
           <motion.div
