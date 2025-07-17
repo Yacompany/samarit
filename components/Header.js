@@ -12,34 +12,14 @@ export default function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMobileRecipes, setShowMobileRecipes] = useState(false);
 
-/*  const navLinks = [
+  const navLinks = [
     { label: "Home", href: "/" },
-
     { label: "Indian Regional Cuisine", href: "/state" },
     { label: "Consultency", href: "/" },
     { label: "Product List", href: "/" },
     { label: "Contact Us", href: "/contact" },
     { label: "Services", href: "/" },
-
-    { label: "News", href: "/news" },
-    { label: "Sport", href: "/sport" },
-    { label: "Business", href: "/business" },
-    { label: "Innovation", href: "/innovation" },
-    { label: "Culture", href: "/culture" },
-     { label: "Travel", href: "/travel" },
-  ]; */
-
-    const navLinks = [
-     { label: "Home", href: "/" },
-    { label: "Indian Regional Cuisine", href: "/culture" },
-    { label: "Consultency", href: "/news" },
-    { label: "Product List", href: "/sport" },
-    { label: "Contact us", href: "/business" },
-    { label: "Services", href: "/innovation" },
-    { label: "Contact Us", href: "/contact" },
-
   ];
-  
   const moreLinks = [
     { label: "Earth", href: "/earth" },
     { label: "Video", href: "/video" },
@@ -92,9 +72,7 @@ export default function Header() {
         </div>
 
         {/* 📺 Desktop: Center Nav */}
-
         <nav className="hidden lg:flex gap-5 w-[55%] items-center justify-center">
-
           {navLinks.map((link, idx) => (
             <Link key={idx} href={link.href} className="text-sm font-medium hover:underline">{link.label}</Link>
           ))}
