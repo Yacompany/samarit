@@ -26,6 +26,7 @@ export default function Footer() {
 
       {/* Nav Links */}
       <ul className="flex flex-wrap ml-[-19px] mt-8">
+<<<<<<< HEAD
           <li className="w-1/3 sm:w-1/3 md:w-1/6  border-r border-[#949494]">
             <a href="" className="hover:underline ml-4">Home</a>
           </li>
@@ -48,6 +49,7 @@ export default function Footer() {
             <a href="news" className="hover:underline ml-4">Video</a>
           </li>
           <li className="w-1/3 sm:w-1/3 md:w-1/6 border-r border-[#949494]">
+
             <a href="news" className="hover:underline ml-4">Live</a>
           </li>
           
