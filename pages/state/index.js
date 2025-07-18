@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import IndiaMap from "@/components/IndiaMap";
+import UttarPradeshMap from "@/components/UttarPradeshMap";
 
 export default function StateIndex() {
   return (
@@ -17,13 +19,15 @@ export default function StateIndex() {
       >
         {/* Image Section */}
         <div className="relative md:w-[65%] h-[250px] md:h-auto">
-        <Image
+       {/*  <Image
           src="/Uttar.png"
           alt="Thai and South-East Asian ingredients"
           width={800} // set any base width in px
           height={450} // maintain aspect ratio
           className="w-full h-auto object-cover"
-        />
+        />  */ }
+      
+<UttarPradeshMap />
       </div>
 
         {/* Text Content Section */}
