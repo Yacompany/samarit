@@ -1,24 +1,110 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
 import { Search, MoreHorizontal, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Header() {
+
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMobileRecipes, setShowMobileRecipes] = useState(false);
+  const [openMobileSubmenus, setOpenMobileSubmenus] = useState({});
 
-  const navLinks = [
+
+ const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Indian Regional Cuisine", href: "/state" },
-    { label: "Consultency", href: "/" },
-    { label: "Product List", href: "/" },
+    { 
+      label: "Indian Regional Cuisine",
+      href: "",
+      submenu: [
+        { label: "Uttar Pradesh", href: "/state/Uttar-Pradesh" },
+        { label: "Punjabi", href: "/state/punjab" },
+        { label: "Rajasthani", href: "/state/Rajasthan" },
+        { label: "Sikkim", href: "/state/Sikkim" },
+        { label: "Tamil Nadu", href: "/state/Tamil-Nadu" },
+        { label: "Tripura", href: "/state/Tripura" },
+        { label: "Uttarakhand", href: "/state/Uttaranchal" },
+        { label: "West Bengali", href: "/state/West Bengal" },
+        { label: "Kerala", href: "/state/Kerala" },
+        { label: "Odisha", href: "/state/Orissa" },
+        { label: "Nagaland", href: "/state/Nagaland" },
+        { label: "Mizoram", href: "/state/Mizoram" },
+        { label: "Meghalaya", href: "/state/Meghalaya" },
+        { label: "Manipur", href: "/state/Manipur" },
+        { label: "Maharashtra", href: "/state/Maharashtra" },
+        { label: "Haryana", href: "/state/Haryana" },
+        { label: "Gujarat", href: "/state/Gujarat" },
+        { label: "Goa", href: "/state/Goa" },
+        { label: "Karnataka", href: "/state/Karnataka" },
+        { label: "Assam", href: "/state/Assam" },
+        { label: "Arunachal", href: "/state/Arunachal-Pradesh" },
+        { label: "Andhra", href: "/state/Andhra-Pradesh" },
+        { label: "Bihari", href: "/state/Bihar" },
+        { label: "Chhattisgarh", href: "/state/Chhattisgarh" },
+        { label: "Jharkhand", href: "/state/Jharkhand" },
+        { label: "Madhy Pradesh", href: "/state/Madhya-Pradesh" },
+        { label: "Himachal", href: "/state/Himachal-Pradesh" },
+        { label: "Kashmiri", href: "/state/Jammu-and-Kashmir" },
+      ],
+
+    },
+
+    { 
+      label: "Consultency", 
+      href: "/",
+      submenu: [
+        { label: "Nutrition Consultance", href: "/1" },
+        { label: "Menu Plaining", href: "/2" },
+        { label: "Cost Analysis", href: "/3" },
+        { label: "Menu Engineering", href: "/4" },
+        { label: "Sop Create", href: "/5" },
+        { label: "Creative Food idea", href: "/6" },
+        { label: "Low Budget Startup", href: "/7" },
+        { label: "Food Persentation", href: "/8" },
+        { label: "Online Food Classes", href: "/9" },
+        { label: "Who To Control Food Wastage", href: "/10" },
+        { label: "Recipes Priciny Analysts", href: "/11" },
+      ],
+    },
+    { 
+      label: "Product List",
+      href: "/", 
+      submenu: [
+        { label: "Indian Rustic Food", href: "/12"},
+        { label: "Nutrition Consultancy", href: "/a"},
+        { label: "Indian Immunity Boasting Recipes", href: "/b"},
+        { label: "Indian Heart Healthy Recipes", href: "/c"},
+        { label: "Indian Weight Loss Food Recipes", href: "/d"},
+        { label: "Indian Gluten Free Dite Food Recipe", href: "/e"},
+        { label: "Indian Lactic Free Desserts", href: "/f"},
+        { label: "Indian Eatable Raw Foods", href: "/g"},
+        { label: "Indian Healthy Meals", href: "/h"},
+        { label: "Indian Kids Lunch Box Ideas", href: "/i"},
+        { label: "Indian Quick & Easy Meal", href: "/j"},
+        { label: "Indian Healthy Salads", href: "/k"},
+        { label: "World's Soups", href: "/l"},
+      ],
+    },
     { label: "Contact Us", href: "/contact" },
-    { label: "Services", href: "/" },
+    {
+     label: "Services",
+     href: "/",
+     submenu: [
+      { label: "Food presentation", href: "/m"},
+      { label: "Food safety", href: "/n"},
+      { label: "Spices and herbs", href: "/o"},
+      { label: "Planning and budgeting", href: "/p"},
+      { label: "Food packaging", href: "/q"},
+      { label: "Clearing plates", href: "/r"},
+      { label: "Food service style", href: "/s"},
+     ],
+    },
   ];
   const moreLinks = [
     { label: "Earth", href: "/earth" },
@@ -56,40 +142,84 @@ export default function Header() {
           <Search className="w-5 h-5 text-gray-700" />
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X className="w-6 h-6 text-base font-bold" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className="w-6 h-6 text-base font-bold" />
             )}
           </button>
         </div>
 
         {/* 📺 Desktop: Left Sign In */}
-        <div className="hidden lg:flex items-center gap-2 w-[10%] border-r border-gray-300 ml-4">
+        <div className="hidden lg:flex items-center gap-2 w-[10%] border-r border-gray-300 ml-2">
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
             <i className="fa-solid fa-user text-sm"></i>
           </div>
-          <Link href="#" className="text-sm font-medium hover:underline">Sign In</Link>
+          <Link href="#" className="text-sm font-bold hover:underline">Sign In</Link>
         </div>
 
         {/* 📺 Desktop: Center Nav */}
-        <nav className="hidden lg:flex gap-5 w-[55%] items-center justify-center">
+        <nav className="hidden lg:flex gap-6 w-[65%] items-center justify-center font-bold relative">
           {navLinks.map((link, idx) => (
-            <Link key={idx} href={link.href} className="text-sm font-medium hover:underline">{link.label}</Link>
+            <div key={idx} className="relative group">
+              
+              {/* Parent menu item */}
+              {link.submenu ? (
+                <button
+                  type="button"
+                  className={`cursor-pointer font-bold text-sm hover:underline whitespace-nowrap ${
+                    link.submenu.some((sublink) => pathname === sublink.href)
+                      ? 'text-blue-600' // active state
+                      : ''
+                  }`}
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={`font-bold text-sm whitespace-nowrap hover:underline ${
+                    pathname === link.href ? 'text-blue-600' : ''
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )}
+
+              {/* Submenu */}
+              {link.submenu && (
+                <div className="absolute left-0 top-full min-w-[250px] bg-black/80 shadow-lg rounded-lg z-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible pointer-events-none group-hover:pointer-events-auto flex flex-wrap transition-all duration-200">
+                  {link.submenu.map((sublink, subIdx) => (
+                    <Link
+                      key={subIdx}
+                      href={sublink.href}
+                      className={`block px-4 py-2 text-sm font-medium hover:bg-blue-500 text-white ${
+                        pathname === sublink.href ? 'bg-blue-500 text-white' : ''
+                      }`}
+                    >
+                      {sublink.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
-          {/* 3-dot */}
+
+          {/* 3-dot menu toggle */}
           <button onClick={() => setShowMoreMenu(!showMoreMenu)}>
             <MoreHorizontal className="w-5 h-5 cursor-pointer" />
           </button>
         </nav>
 
+
+
         {/* 📺 Desktop: Right actions */}
         <div className="hidden lg:flex items-center gap-4 w-[20%] justify-end">
-          <div className="flex items-center bg-gray-100 border border-gray-300 px-2 py-1">
-            <Search className="w-4 h-4 text-gray-600 mr-2" />
+          <div className="flex items-center bg-gray-100  border-gray-300 px-2 py-1 rounded">
+            <Search className="w-4 h-4 text-gray-600" />
             <input
               type="text"
               placeholder="Search SAMRIT"
-              className="bg-transparent outline-none text-sm text-gray-700 placeholder-gray-500"
+              className="bg-transparent outline-none p-2 text-sm text-gray-700 placeholder-gray-500"
             />
           </div>
         </div>
@@ -117,22 +247,54 @@ export default function Header() {
 
       {/* 📱 Mobile: Dropdown menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-gray-300 px-4 py-3">
-          <div className="grid grid-cols-2 gap-3">
-            {navLinks.concat(moreLinks).map((link, idx) => (
-              <Link
-                key={idx}
-                href={link.href}
-                className="text-base font-medium hover:underline"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="lg:hidden bg-white border-b border-gray-300 px-4 py-3 space-y-2">
+          {navLinks.concat(moreLinks).map((link, idx) => (
+            <div key={idx}>
+              {link.submenu ? (
+                <>
+                  <button
+                    onClick={() =>
+                      setOpenMobileSubmenus((prev) => ({
+                        ...prev,
+                        [idx]: !prev[idx],
+                      }))
+                    }
+                    className="w-full flex justify-between items-center text-left text-base font-bold hover:underline"
+                  >
+                    {link.label}
+                    <span>{openMobileSubmenus[idx] ? '▲' : '▼'}</span>
+                  </button>
+
+                  {openMobileSubmenus[idx] && (
+                    <div className="ml-4 mt-1 space-y-1">
+                      {link.submenu.map((sublink, subIdx) => (
+                        <Link
+                          key={subIdx}
+                          href={sublink.href}
+                          className="block text-sm font-medium text-gray-700 hover:underline"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {sublink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="block text-base font-medium hover:underline"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
       )}
-            {/* Top Header */}
+
+      {/* Top Header */}
       <div className="flex items-center justify-between px-4 pt-2 md:p-4">
         {/* Title */}
         <h1 className="text-4xl font-bold text-gray-800 mr-4">FOOD</h1>

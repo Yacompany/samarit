@@ -1,16 +1,18 @@
 'use client';
 
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import IndiaMap from "@/components/IndiaMap";
 import UttarPradeshMap from "@/components/UttarPradeshMap";
 
-export default function StateIndex({ params }) {
-  const { slug } = params;
+export default function StatePage() {
+  const router = useRouter();
+  const { slug } = router.query;
   return (
     <section className="md:p-4 p-2">
-      <h1 className="text-3xl font-bold mb-4">Food around the Uttar Pradesh</h1>
+      <h1 className="text-3xl font-bold mb-4">Food around the { slug }</h1>
 
       <motion.div
         className="md:flex md:gap-2 bg-white shadow-md overflow-hidden"
@@ -28,13 +30,13 @@ export default function StateIndex({ params }) {
           className="w-full h-auto object-cover"
         />  */ }
       
-<UttarPradeshMap />
+<UttarPradeshMap stateName={slug} />
       </div>
 
         {/* Text Content Section */}
         <div className="p-6 flex flex-col md:w-[35%] justify-center">
           <h2 className="text-green-700 text-2xl font-bold mb-2">
-            Uttar Pradesh
+            { slug }
           </h2>
           <p className="text-gray-700 mb-4">
             Recipes for rich and traditional dishes from Awadhi, Mughlai, and Bhojpuri kitchens — including kebabs, curries, and festive sweets.
