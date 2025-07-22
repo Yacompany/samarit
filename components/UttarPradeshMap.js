@@ -4,10 +4,8 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
-
 import { geoMercator, geoPath } from "d3-geo";
 import { useEffect, useState } from "react";
-
 
 const districtGeoUrl =
   "https://raw.githubusercontent.com/geohacker/india/master/district/india_district.geojson";
@@ -95,7 +93,6 @@ export default function UttarPradeshMap({ stateName }) {
           </>
         )}
       </Geographies>
-
     </ComposableMap>
   );
 }

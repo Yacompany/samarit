@@ -30,7 +30,7 @@ export default function Header() {
         { label: "Tamil Nadu", href: "/state/Tamil-Nadu" },
         { label: "Tripura", href: "/state/Tripura" },
         { label: "Uttarakhand", href: "/state/Uttaranchal" },
-        { label: "West Bengali", href: "/state/West Bengal" },
+        { label: "West Bengali", href: "/state/West-Bengal" },
         { label: "Kerala", href: "/state/Kerala" },
         { label: "Odisha", href: "/state/Orissa" },
         { label: "Nagaland", href: "/state/Nagaland" },
@@ -106,11 +106,7 @@ export default function Header() {
      ],
     },
   ];
-  const moreLinks = [
-    { label: "Earth", href: "/earth" },
-    { label: "Video", href: "/video" },
-    { label: "Live", href: "/live" },
-  ];
+  const moreLinks = [];
 
 
   return (
@@ -126,20 +122,21 @@ export default function Header() {
         </div>
 
         {/* Logo Center */}
-        <div className="flex justify-center items-center space-x-1 w-auto lg:w-[15%]">
+        <div className="flex justify-center items-center space-x-1 w-auto lg:w-[20%]">
           {"SAMRIT".split("").map((char, index) => (
             <div
               key={index}
-              className="bg-black text-white text-[24px] font-bold w-10 h-10 flex items-center justify-center"
+              className="bg-black text-white text-[24px] font-bold w-5 md:w-10 h-10 flex items-center justify-center"
             >
               {char}
             </div>
           ))}
+            <h1 className="text-2xl font-bold text-black-800 ml-2">FOOD</h1>
         </div>
 
         {/* 📱 Mobile: Search & menu buttons */}
         <div className="flex items-center gap-3 lg:hidden">
-          <Search className="w-5 h-5 text-gray-700" />
+          
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? (
               <X className="w-6 h-6 text-base font-bold" />
@@ -149,14 +146,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* 📺 Desktop: Left Sign In */}
-        <div className="hidden lg:flex items-center gap-2 w-[10%] border-r border-gray-300 ml-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
-            <i className="fa-solid fa-user text-sm"></i>
-          </div>
-          <Link href="#" className="text-sm font-bold hover:underline">Sign In</Link>
-        </div>
-
+       
         {/* 📺 Desktop: Center Nav */}
         <nav className="hidden lg:flex gap-6 w-[65%] items-center justify-center font-bold relative">
           {navLinks.map((link, idx) => (
@@ -210,19 +200,15 @@ export default function Header() {
           </button>
         </nav>
 
-
-
-        {/* 📺 Desktop: Right actions */}
-        <div className="hidden lg:flex items-center gap-4 w-[20%] justify-end">
-          <div className="flex items-center bg-gray-100  border-gray-300 px-2 py-1 rounded">
-            <Search className="w-4 h-4 text-gray-600" />
-            <input
-              type="text"
-              placeholder="Search SAMRIT"
-              className="bg-transparent outline-none p-2 text-sm text-gray-700 placeholder-gray-500"
-            />
+         {/* 📺 Desktop: right Sign In */}
+        <div className="hidden lg:flex items-center gap-2 w-[8%]">
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
+            <i className="fa-solid fa-user text-sm"></i>
           </div>
+          <Link href="#" className="text-sm font-bold hover:underline">Sign In</Link>
         </div>
+
+
       </header>
 
       {/* 📺 Desktop: Full-width bar expand on 3-dot */}
@@ -293,56 +279,8 @@ export default function Header() {
           ))}
         </div>
       )}
-
-      {/* Top Header */}
-      <div className="flex items-center justify-between px-4 pt-2 md:p-4">
-        {/* Title */}
-        <h1 className="text-4xl font-bold text-gray-800 mr-4">FOOD</h1>
-
-        {/* Search Bar - Desktop Only */}
-        <div className="flex-1 relative hidden md:block">
-          <input
-            type="text"
-            placeholder="Discover more than 10,000 fantastic recipes on SAMRIT Food"
-            aria-label="Search recipes"
-            className="w-full py-2 pl-5 pr-10 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-400 bg-white"
-          />
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-4.35-4.35M17 10.5A6.5 6.5 0 104 10.5a6.5 6.5 0 0013 0z"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Hamburger + All Food - Mobile */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="flex items-center text-green-600 border border-green-600 px-3 py-1 rounded hover:bg-green-50 md:hidden"
-        >
-          <svg
-            className="w-5 h-5 mr-2"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          All Food
-        </button>
-      </div>
-
-
+     
+     
       {/* Navigation - Desktop */}
       <div className="hidden md:flex items-center bg-black text-white text-sm font-medium">
         <nav className="flex-1">
@@ -416,6 +354,21 @@ export default function Header() {
           </a>
         </div>
       </div>
+      {/* 📱 Mobile: Right side icons */}
+      <div className="flex items-center gap-3 px-4 ml-auto lg:hidden">
+
+        {/* Toggle BBC-style menuOpen dropdown */}
+        <button onClick={() => {
+          setMenuOpen(!menuOpen);
+          setMobileMenuOpen(false); // Close other menu
+        }}>
+          {menuOpen ? (
+            <X className="w-6 h-6 text-base font-bold" />
+          ) : (
+            <Menu className="w-6 h-6 text-base font-bold" />
+          )}
+        </button>
+      </div>
 
       {/* Navigation Dropdown - Mobile */}
       {menuOpen && (
@@ -487,32 +440,6 @@ export default function Header() {
         </div>
       )}
 
-      {/* Search Bar - Mobile Only */}
-      <div className="pt-2 px-4 md:hidden">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Discover recipes"
-            aria-label="Search recipes"
-            className="w-full py-2 pl-4 pr-10 text-gray-700 bg-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-4.35-4.35M17 10.5A6.5 6.5 0 104 10.5a6.5 6.5 0 0013 0z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

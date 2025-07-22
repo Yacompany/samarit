@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
 
-      <div className="flex items-center justify-between pt-4 md:pt-0">
+      <div className="flex items-center justify-between pt-1 md:pt-0">
         <img
           src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/miso_salmon_rice_bowl_77368_16x9.jpg"
           alt="SAMRIT"
