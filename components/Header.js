@@ -114,12 +114,18 @@ export default function Header() {
       {/* 📌 Header */}
       <header className={`bg-white flex items-center justify-between px-4 py-3 relative z-50 ${ showMoreMenu ? '' : 'border-b border-gray-300'}`}>
 
-        {/* 📱 Mobile: User icon */}
+         {/* 📱 Mobile: Search & menu buttons */}
         <div className="flex items-center gap-3 lg:hidden">
-          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
-            <i className="fa-solid fa-user text-sm"></i>
-          </div>
+          
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6 text-base font-bold" />
+            ) : (
+              <Menu className="w-6 h-6 text-base font-bold" />
+            )}
+          </button>
         </div>
+
 
         {/* Logo Center */}
         <div className="flex justify-center items-center space-x-1 w-auto lg:w-[20%]">
@@ -134,18 +140,12 @@ export default function Header() {
             <h1 className="text-2xl font-bold text-black-800 ml-2">FOOD</h1>
         </div>
 
-        {/* 📱 Mobile: Search & menu buttons */}
+        {/* 📱 Mobile: User icon */}
         <div className="flex items-center gap-3 lg:hidden">
-          
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-base font-bold" />
-            ) : (
-              <Menu className="w-6 h-6 text-base font-bold" />
-            )}
-          </button>
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
+            <i className="fa-solid fa-user text-sm"></i>
+          </div>
         </div>
-
        
         {/* 📺 Desktop: Center Nav */}
         <nav className="hidden lg:flex gap-6 w-[65%] items-center justify-center font-bold relative">
