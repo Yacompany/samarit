@@ -7,7 +7,7 @@ import IndiaMap from "@/components/IndiaMap";
 import UttarPradeshMap from "@/components/UttarPradeshMap";
 
 export default function StateIndex({ params }) {
-  const { slug } = params;
+  const slug = params?.slug || 'Uttar-Pradesh';
   return (
     <section className="md:p-4 p-2">
       <h1 className="text-3xl font-bold mb-4">Food around the Uttar Pradesh</h1>
