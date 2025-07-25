@@ -7,8 +7,7 @@ import {
 import { geoMercator, geoPath } from "d3-geo";
 import { useEffect, useState } from "react";
 
-const districtGeoUrl =
-  "india_states.geojson";
+const districtGeoUrl ="/india_district.geojson";
 
 export default function UttarPradeshMap({ stateName }) {
   const formattedName = stateName?.replace(/-/g, " ").toLowerCase();
